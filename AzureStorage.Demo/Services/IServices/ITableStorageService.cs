@@ -1,6 +1,6 @@
 ﻿using AzureStorage.Demo.Data;
 
-namespace AzureStorage.Demo.Services
+namespace AzureStorage.Demo.Services.IServices
 {
     public interface ITableStorageService
     {

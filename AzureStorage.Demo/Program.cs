@@ -1,14 +1,16 @@
 using Azure.Data.Tables;
 using Azure.Storage.Queues;
 using AzureStorage.Demo.Services;
+using AzureStorage.Demo.Services.IServices;
 using Microsoft.Extensions.Azure;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+  
 var storageConnectionString = builder.Configuration["AzureStorage:ConnectionString"];
 builder.Services.AddAzureClients(builder =>
 {
-   
+    builder.AddBlobServiceClient(storageConnectionString);
     builder.AddTableServiceClient(storageConnectionString);
 });
 
@@ -22,6 +24,7 @@ builder.Services.AddAzureClients(b => {
     });
 });
 builder.Services.AddScoped<ITableStorageService, TableStorageService>();
+builder.Services.AddScoped<IBlobStorageService, BlobStorageService>();
 builder.Services.AddControllersWithViews();
 
 

@@ -1,6 +1,7 @@
 ﻿using Azure.Data.Tables;
 using Azure;
 using AzureStorage.Demo.Data;
+using AzureStorage.Demo.Services.IServices;
 
 namespace AzureStorage.Demo.Services
 {
